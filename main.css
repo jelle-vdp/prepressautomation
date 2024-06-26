@@ -1,3 +1,23 @@
+@media (min-width: 1536px) and (max-width: 1576px) {
+  .container {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+  }
+}
+@media (min-width: 1280px) and (max-width: 1320px) {
+  .container {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    padding-right: 40px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1064px) {
+  .container {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    padding-right: 40px;
+  }
+}
 @font-face {
   font-family: subjectivity-bold;
   src: url(assets/fonts/Subjectivity-Bold.woff2);
@@ -20,6 +40,10 @@
 }
 * {
   font-family: subjectivity-regular, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -55,9 +79,12 @@ header::after {
   border-bottom: 12px solid #f5f5f5;
 }
 header h1 {
-  background-color: rgb(22 163 74/var(--tw-bg-opacity));
+  text-transform: uppercase;
+  z-index: 9;
 }
 header h1 span {
+  background-color: rgb(22 163 74/var(--tw-bg-opacity));
+  padding-right: 1rem;
   position: relative;
   font-family: subjectivity-super, sans-serif;
 }
@@ -70,17 +97,48 @@ header h1 span::before {
   width: 12px;
   height: 70px;
 }
-header h1 span::after {
-  content: "";
-  position: absolute;
-  left: calc(100% + 14px);
-  bottom: 14px;
-  background-color: #f5f5f5;
-  width: 100vw;
-  height: 12px;
+@media (max-width: 1536px) and (min-width: 1280px) {
+  header h1 span::before {
+    height: 60px;
+  }
 }
 header nav * {
   font-family: subjectivity-bold, sans-serif;
+}
+header nav * li {
+  position: relative;
+  transition: all 0.4s ease-in-out;
+}
+@media (max-width: 1536px) {
+  header nav * li {
+    padding-bottom: 2px;
+  }
+}
+header nav * li:hover {
+  transform: rotate(-2deg);
+}
+header nav * li:nth-child(1) {
+  z-index: 4;
+}
+header nav * li:nth-child(2) {
+  z-index: 3;
+}
+header nav * li:nth-child(3) {
+  z-index: 2;
+}
+header nav * li::before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  bottom: 12px;
+  background-color: #f5f5f5;
+  width: 150px;
+  height: 12px;
+}
+@media (min-width: 1536px) {
+  header nav * li::before {
+    bottom: 15px;
+  }
 }
 
 main h2 {
@@ -104,22 +162,18 @@ main section:not(#hero):not(#general-conditions) {
   height: 100px;
   width: 100%;
 }
-#hero .container > span {
+#hero .container {
   position: relative;
-  height: 12px;
-  width: 1339px;
-  display: block;
-  transform: rotate(2deg);
+  overflow-x: hidden;
 }
-#hero .container > span::before {
+#hero .container::before {
   content: "";
   position: absolute;
-  bottom: 100%;
-  left: -8px;
-  background-color: inherit;
-  height: 50vh;
+  top: 0;
+  left: 0;
+  background-color: #f5f5f5;
+  height: 160px;
   width: 12px;
-  transform: rotate(-2deg);
 }
 #hero ul {
   padding-top: 16px;
@@ -128,17 +182,28 @@ main section:not(#hero):not(#general-conditions) {
   background-color: #f5f5f5;
   position: relative;
 }
+#hero li:last-child::after {
+  content: "";
+  position: absolute;
+  right: calc(50% - 7px);
+  bottom: calc(100% + 77px);
+  transform: translateX(calc(-50% + 20vw + 6px));
+  width: 100vw;
+  height: 12px;
+  background-color: #f5f5f5;
+  transform: rotate(2deg);
+}
 #hero li:nth-child(1)::before {
-  height: 85px;
+  height: 95px;
 }
 #hero li:nth-child(2)::before {
-  height: 70px;
+  height: 80px;
 }
 #hero li:nth-child(3)::before {
-  height: 55px;
+  height: 70px;
 }
 #hero li:nth-child(4)::before {
-  height: 50px;
+  height: 60px;
 }
 #hero li::before {
   content: "";
@@ -164,6 +229,7 @@ main section:not(#hero):not(#general-conditions) {
 }
 
 #about {
+  scroll-margin-top: 140px;
   position: relative;
 }
 #about::after {
@@ -178,6 +244,7 @@ main section:not(#hero):not(#general-conditions) {
 }
 
 #general-conditions {
+  scroll-margin-top: 240px;
   padding-bottom: 5rem;
 }
 #general-conditions .text-container {
@@ -212,6 +279,7 @@ main section:not(#hero):not(#general-conditions) {
 
 #contact.text-container {
   position: relative;
+  scroll-margin-top: 280px;
 }
 #contact.text-container::before {
   content: "";
@@ -252,9 +320,13 @@ footer::before {
 }
 
 .content-container {
-  max-width: calc(100% - 180px);
   margin-left: auto;
   margin-right: auto;
+}
+@media (min-width: 1536px) {
+  .content-container {
+    max-width: calc(100% - 180px);
+  }
 }
 
 .text-container {
@@ -285,9 +357,9 @@ button:hover {
   background-color: #138d40;
 }
 
-nav a, footer a {
+footer a {
   transition: all 0.2s ease-in-out;
 }
-nav a:hover, footer a:hover {
+footer a:hover {
   color: #e8e8e8;
 }/*# sourceMappingURL=main.css.map */
