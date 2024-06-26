@@ -95,11 +95,11 @@ header h1 span::before {
   left: 0;
   background-color: #f5f5f5;
   width: 12px;
-  height: 70px;
+  height: 60px;
 }
-@media (max-width: 1536px) and (min-width: 1280px) {
+@media (min-width: 1536px) {
   header h1 span::before {
-    height: 60px;
+    height: 70px;
   }
 }
 header nav * {
@@ -182,6 +182,12 @@ main section:not(#hero):not(#general-conditions) {
   background-color: #f5f5f5;
   position: relative;
 }
+#hero li:last-child p {
+  z-index: 2;
+}
+#hero li:last-child:hover span {
+  transform: skew(0, -2deg);
+}
 #hero li:last-child::after {
   content: "";
   position: absolute;
@@ -223,6 +229,7 @@ main section:not(#hero):not(#general-conditions) {
   transform: skew(0, 2deg);
   background-color: #f5f5f5;
   z-index: 1;
+  transition: all 0.4s ease-in-out;
 }
 #hero li img, #hero li h3 {
   z-index: 5;
