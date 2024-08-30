@@ -6,46 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prepress Automation</title>
     <link rel="stylesheet" href="main.css">
+    <script src="main.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-    <header class="bg-green-600 text-neutral-100 sticky top-0 left-0 w-full">
+    <header id="top" class="bg-green-600 text-neutral-100 sticky w-full">
         <div class="container mx-auto my-auto py-6 grid grid-cols-12">
-            <h1 class="2xl:text-6xl text-5xl col-span-5 2xl:col-span-4"><span>Prepress Automation</span></h1>
-            <nav class="2xl:col-start-6 2xl:col-span-6 col-span-7 text-2xl uppercase">
-                <ul class="flex-col xl:flex-row flex h-full justify-between items-end">
-                    <li class="bg-green-600 2xl:pb-1 px-2 2xl:px-4"><a href="#about">About</a></li>
-                    <li class="bg-green-600 2xl:pb-1 px-2 2xl:px-4"><a href="#general-conditions">General conditions</a></li>
-                    <li class="bg-green-600 2xl:pb-1 px-2 2xl:px-4"><a href="#contact">Contact</a></li>
+            <a class="col-span-5 2xl:col-span-4 z-50" href="#top"><h1 class="2xl:text-6xl text-5xl"><span>Prepress Automation</span></h1></a>
+            <nav class="z-50 flex content-start lg:block 2xl:col-start-6 2xl:col-span-6 col-span-7 text-2xl uppercase">
+                <button class="lg:hidden ml-auto mb-auto uppercase">Menu</button> 
+                <ul class="lg:flex flex-col xl:flex-row lg:ml-auto xl:ml-0 lg:h-full justify-between items-end">
+                    <li class="bg-green-600 2xl:pb-1 lg:px-2 2xl:px-4"><a href="#about">About</a></li>
+                    <li class="bg-green-600 2xl:pb-1 lg:px-2 2xl:px-4"><a href="#general-conditions">General conditions</a></li>
+                    <li class="bg-green-600 2xl:pb-1 lg:px-2 2xl:px-4"><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <main>
         <section id="hero">
-            <div class="container mx-auto pt-60 pb-36 items-center">
+            <div class="container mx-auto py-60 items-center">
                 <ul class="content-container flex justify-between text-neutral-800">
                     <li class="bg-neutral-100 w-1/5 xl:w-1/6 text-center flex flex-col justify-items-center py-6 px-4 2xl:p-6">
                         <div class="xl:mx-6 mb-6 h-24 flex justify-center align-items-center">
                             <img src="/assets/img/prepress-icon.svg" alt="Prepress and JDF Automation">
                         </div>
-                        <h3 class="text-xl">Prepress and JDF Automation</h3>
+                        <h3 class="text-lg lg:text-xl leading-tight">Prepress & JDF Automation</h3>
                         <span></span>
                     </li>
                     <li class="w-1/5 xl:w-1/6 text-center flex flex-col align-items-center py-6 px-4 2xl:p-6">
                         <div class="xl:mx-6 mb-6 h-24 flex justify-center align-items-center">
                             <img src="/assets/img/softwaretesting-icon.svg" alt="Software Testing">
                         </div>
-                        <h3 class="text-xl">Software testing</h3>
+                        <h3 class="text-lg lg:text-xl leading-tight">Software testing</h3>
                         <span></span>
                     </li>
                     <li class="w-1/5 xl:w-1/6 text-center flex flex-col justify-items-center py-6 px-4 2xl:p-6">
                         <div class="xl:mx-6 mb-6 h-24 flex justify-center align-items-center">
                             <img src="/assets/img/webdevelopment-icon.svg" alt="Webdevelopment">
                         </div>
-                        <h3 class="text-xl">Webdesign & development</h3>
+                        <h3 class="text-lg lg:text-xl leading-tight">Webdesign & development</h3>
                         <span></span>
                     </li>
                     <li class="w-1/5 xl:w-1/6 text-center py-6 px-4 2xl:p-6">
@@ -53,7 +55,7 @@
                             <div class="xl:mx-6 mb-6 h-24 flex justify-items-center align-items-center">
                                 <img src="/assets/img/elektrorepair-icon.svg" alt="Electro repair">
                             </div>
-                            <h3 class="text-xl">Electro repair</h3>
+                            <h3 class="text-lg lg:text-xl leading-tight">Electro repair</h3>
                             <p class="text-neutral-800">(Click for more info)</p>
                             <span></span>
                         </a>
@@ -61,7 +63,7 @@
                 </ul>
             </div>
         </section>
-        <section id="about" class="py-16">
+        <section id="about" class="pb-16">
             <div class="text-container py-12 bg-neutral-100 text-neutral-800 grid grid-cols-4 gap-8">
                 <div class="col-span-3">
                     <h2 class="text-2xl mb-4">About Prepress Automation</h1>
@@ -122,11 +124,11 @@
                     </label>
                     <input type="email" name="email" id="email" />
                 </div>
-                <div class="col-span-2 flex h-36 flex-col">
+                <div class="col-span-2 flex flex-col">
                     <label for="email" class="mb-2">
                         Message *
                     </label>
-                    <textarea name="message" id="message" rows="12"></textarea>
+                    <textarea name="message" id="message"></textarea>
                 </div>
                 <button type="submit" class="bg-green-600 text-neutral-100 py-4 px-2 col-span-2">Send</button>
             </form>
