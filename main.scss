@@ -55,11 +55,19 @@ $primary-white: #f5f5f5;
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+@media (max-width: 780px) {
+  .container {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    width: auto !important;
+  }
 }
 
 body {
-  overflow-x: hidden;
-
   &::after {
     content: "";
     width: 100vw;
@@ -76,6 +84,14 @@ body {
 
 .mm-open header::after {
   height: 165px;
+}
+
+.chrome header h1 span::before {
+  bottom: -70px;
+}
+
+.edge header h1 span::before {
+  bottom: -70px;
 }
 
 header {
@@ -97,11 +113,20 @@ header {
     border-bottom: 12px solid $primary-white;
     z-index: 20;
     transition: all 1s ease-in-out;
+
+    @media (max-width: 780px) {
+      border-bottom: 8px solid $primary-white;
+    }
   }
 
   h1 {
     text-transform: uppercase;
     z-index: 9;
+
+    @media (max-width: 500px) {
+      font-size: 1.6rem !important;
+      line-height: 1.2 !important;
+    }
 
     span {
       background-color: $primary-green;
@@ -150,8 +175,16 @@ header {
       position: relative;
       transition: all 1s ease-in-out;
 
+      @media (max-width: 500px) {
+        font-size: 1rem;
+        padding-bottom: 12px;
+      }
+
       &.close {
         padding-bottom: 64px;
+        @media (max-width: 500px) {
+          padding-bottom: 50px;
+        }
       }
 
       &::after,
@@ -164,6 +197,12 @@ header {
         height: 12px;
         transition: all 1s ease-in-out;
         background-color: $primary-white;
+
+        @media (max-width: 780px) {
+          height: 8px;
+        }
+        @media (max-width: 500px) {
+        }
       }
 
       &.close::after {
@@ -199,6 +238,28 @@ header {
           background-color: transparent;
           transition: all 0.5s ease-in-out;
 
+          @media (max-width: 780px) {
+            font-size: 1.2rem !important;
+            padding-left: 160px;
+
+            &:hover {
+              padding-left: 170px;
+            }
+          }
+
+          @media (max-width: 500px) {
+            padding-left: 80px;
+
+            &:hover {
+              padding-left: 90px !important;
+
+              &::before {
+                width: 80px !important;
+                right: calc(100% - 80px) !important;
+              }
+            }
+          }
+
           &:hover {
             padding-left: 200px;
 
@@ -211,6 +272,14 @@ header {
           &::before {
             transition: all 0.5s ease-in-out;
             right: calc(100% - 150px);
+
+            @media (max-width: 780px) {
+              height: 8px;
+            }
+            @media (max-width: 500px) {
+              width: 70px;
+              right: calc(100% - 70px);
+            }
           }
 
           &::after {
@@ -222,6 +291,13 @@ header {
             height: 32px;
             background-color: $primary-white;
             z-index: 30;
+
+            @media (max-width: 780px) {
+              width: 8px;
+            }
+            @media (max-width: 500px) {
+              height: 60px;
+            }
           }
         }
       }
@@ -239,6 +315,9 @@ header {
         &:hover {
           transform: rotate(-2deg);
         }
+      }
+      @media (max-width: 500px) {
+        font-size: 1rem;
       }
 
       &:nth-child(1) {
@@ -295,6 +374,11 @@ main {
       height: 160px;
       width: 12px;
 
+      @media (max-width: 780px) {
+        width: 8px;
+        height: 170px;
+      }
+
       // @media (min-width: 1536px) and (max-width: 1576px) {
       //     left: 20px;
       // }
@@ -307,11 +391,29 @@ main {
 
   ul {
     padding-top: 16px;
+
+    @media (max-width: 500px) {
+      column-gap: 2rem;
+    }
   }
 
   li {
     background-color: $primary-white;
     position: relative;
+
+    @media (max-width: 768px) {
+      &:nth-child(2)::after {
+        content: "";
+        position: absolute;
+        right: calc(50% - 4px);
+        bottom: calc(100% + 77px);
+        transform: translateX(calc(-50% + 20vw + 6px));
+        width: 100vw;
+        height: 8px;
+        background-color: $primary-white;
+        transform: rotate(2deg);
+      }
+    }
 
     &:last-child {
       p {
@@ -330,18 +432,33 @@ main {
         height: 12px;
         background-color: $primary-white;
         transform: rotate(2deg);
+
+        @media (max-width: 780px) {
+          height: 8px;
+        }
+
+        @media (max-width: 768px) {
+          height: 0px;
+        }
       }
     }
 
     &:nth-child(1)::before {
       height: 95px;
 
-      @media (min-width: 640px) and (max-width: 1024px) {
+      @media (min-width: 768px) and (max-width: 1024px) {
         height: 90px;
+      }
+      @media (max-width: 768px) {
+        height: 85px;
       }
     }
     &:nth-child(2)::before {
       height: 80px;
+
+      @media (max-width: 768px) {
+        height: 72px;
+      }
     }
     &:nth-child(3)::before {
       height: 64px;
@@ -374,6 +491,9 @@ main {
       transform: translateX(-50%);
       width: 12px;
       background-color: $primary-white;
+      @media (max-width: 780px) {
+        width: 8px;
+      }
     }
 
     // ::after {
@@ -411,6 +531,10 @@ main {
   margin-top: -40px;
   scroll-margin-top: 180px;
 
+  @media (max-width: 1024px) {
+    scroll-margin-top: 260px;
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -421,11 +545,6 @@ main {
     height: 100px;
     width: calc(100vw + 2px);
     z-index: -1;
-
-    @media (max-width: 1024px) {
-      top: calc(100% - 80px);
-      left: -2px;
-    }
   }
 
   &::after {
@@ -482,7 +601,7 @@ main {
 #contact {
   scroll-margin-top: 200px;
 
-  .text-container {
+  &.text-container {
     position: relative;
 
     &::before {
@@ -537,6 +656,10 @@ footer {
     left: -10%;
     transform: rotate(-2deg);
     border-top: 12px solid $primary-white;
+
+    @media (max-width: 780px) {
+      border-top: 8px solid $primary-white;
+    }
   }
 }
 

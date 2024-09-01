@@ -44,10 +44,16 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100vw;
 }
 
-body {
-  overflow-x: hidden;
+@media (max-width: 780px) {
+  .container {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    width: auto !important;
+  }
 }
 body::after {
   content: "";
@@ -64,6 +70,14 @@ body::after {
 
 .mm-open header::after {
   height: 165px;
+}
+
+.chrome header h1 span::before {
+  bottom: -70px;
+}
+
+.edge header h1 span::before {
+  bottom: -70px;
 }
 
 header {
@@ -86,9 +100,20 @@ header::after {
   z-index: 20;
   transition: all 1s ease-in-out;
 }
+@media (max-width: 780px) {
+  header::after {
+    border-bottom: 8px solid #f5f5f5;
+  }
+}
 header h1 {
   text-transform: uppercase;
   z-index: 9;
+}
+@media (max-width: 500px) {
+  header h1 {
+    font-size: 1.6rem !important;
+    line-height: 1.2 !important;
+  }
 }
 header h1 span {
   background-color: rgb(22 163 74/var(--tw-bg-opacity));
@@ -125,8 +150,19 @@ header nav button {
   position: relative;
   transition: all 1s ease-in-out;
 }
+@media (max-width: 500px) {
+  header nav button {
+    font-size: 1rem;
+    padding-bottom: 12px;
+  }
+}
 header nav button.close {
   padding-bottom: 64px;
+}
+@media (max-width: 500px) {
+  header nav button.close {
+    padding-bottom: 50px;
+  }
 }
 header nav button::after, header nav button::before {
   content: "";
@@ -137,6 +173,11 @@ header nav button::after, header nav button::before {
   height: 12px;
   transition: all 1s ease-in-out;
   background-color: #f5f5f5;
+}
+@media (max-width: 780px) {
+  header nav button::after, header nav button::before {
+    height: 8px;
+  }
 }
 header nav button.close::after {
   bottom: 30px;
@@ -168,6 +209,29 @@ header nav button.close::before {
     background-color: transparent;
     transition: all 0.5s ease-in-out;
   }
+}
+@media (max-width: 1024px) and (max-width: 780px) {
+  header nav ul li {
+    font-size: 1.2rem !important;
+    padding-left: 160px;
+  }
+  header nav ul li:hover {
+    padding-left: 170px;
+  }
+}
+@media (max-width: 1024px) and (max-width: 500px) {
+  header nav ul li {
+    padding-left: 80px;
+  }
+  header nav ul li:hover {
+    padding-left: 90px !important;
+  }
+  header nav ul li:hover::before {
+    width: 80px !important;
+    right: calc(100% - 80px) !important;
+  }
+}
+@media (max-width: 1024px) {
   header nav ul li:hover {
     padding-left: 200px;
   }
@@ -179,6 +243,19 @@ header nav button.close::before {
     transition: all 0.5s ease-in-out;
     right: calc(100% - 150px);
   }
+}
+@media (max-width: 1024px) and (max-width: 780px) {
+  header nav ul li::before {
+    height: 8px;
+  }
+}
+@media (max-width: 1024px) and (max-width: 500px) {
+  header nav ul li::before {
+    width: 70px;
+    right: calc(100% - 70px);
+  }
+}
+@media (max-width: 1024px) {
   header nav ul li::after {
     content: "";
     position: absolute;
@@ -188,6 +265,16 @@ header nav button.close::before {
     height: 32px;
     background-color: #f5f5f5;
     z-index: 30;
+  }
+}
+@media (max-width: 1024px) and (max-width: 780px) {
+  header nav ul li::after {
+    width: 8px;
+  }
+}
+@media (max-width: 1024px) and (max-width: 500px) {
+  header nav ul li::after {
+    height: 60px;
   }
 }
 header nav li {
@@ -202,6 +289,11 @@ header nav li {
 @media (min-width: 1024px) {
   header nav li:hover {
     transform: rotate(-2deg);
+  }
+}
+@media (max-width: 500px) {
+  header nav li {
+    font-size: 1rem;
   }
 }
 header nav li:nth-child(1) {
@@ -252,12 +344,37 @@ main section:not(#hero):not(#general-conditions) {
   height: 160px;
   width: 12px;
 }
+@media (max-width: 780px) {
+  #hero .container::before {
+    width: 8px;
+    height: 170px;
+  }
+}
 #hero ul {
   padding-top: 16px;
+}
+@media (max-width: 500px) {
+  #hero ul {
+    -moz-column-gap: 2rem;
+         column-gap: 2rem;
+  }
 }
 #hero li {
   background-color: #f5f5f5;
   position: relative;
+}
+@media (max-width: 768px) {
+  #hero li:nth-child(2)::after {
+    content: "";
+    position: absolute;
+    right: calc(50% - 4px);
+    bottom: calc(100% + 77px);
+    transform: translateX(calc(-50% + 20vw + 6px));
+    width: 100vw;
+    height: 8px;
+    background-color: #f5f5f5;
+    transform: rotate(2deg);
+  }
 }
 #hero li:last-child p {
   z-index: 2;
@@ -276,16 +393,36 @@ main section:not(#hero):not(#general-conditions) {
   background-color: #f5f5f5;
   transform: rotate(2deg);
 }
+@media (max-width: 780px) {
+  #hero li:last-child::after {
+    height: 8px;
+  }
+}
+@media (max-width: 768px) {
+  #hero li:last-child::after {
+    height: 0px;
+  }
+}
 #hero li:nth-child(1)::before {
   height: 95px;
 }
-@media (min-width: 640px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   #hero li:nth-child(1)::before {
     height: 90px;
   }
 }
+@media (max-width: 768px) {
+  #hero li:nth-child(1)::before {
+    height: 85px;
+  }
+}
 #hero li:nth-child(2)::before {
   height: 80px;
+}
+@media (max-width: 768px) {
+  #hero li:nth-child(2)::before {
+    height: 72px;
+  }
 }
 #hero li:nth-child(3)::before {
   height: 64px;
@@ -322,6 +459,11 @@ main section:not(#hero):not(#general-conditions) {
   width: 12px;
   background-color: #f5f5f5;
 }
+@media (max-width: 780px) {
+  #hero li::before {
+    width: 8px;
+  }
+}
 #hero li span {
   position: absolute;
   left: 0;
@@ -343,6 +485,11 @@ main section:not(#hero):not(#general-conditions) {
   margin-top: -40px;
   scroll-margin-top: 180px;
 }
+@media (max-width: 1024px) {
+  #about {
+    scroll-margin-top: 260px;
+  }
+}
 #about::before {
   content: "";
   position: absolute;
@@ -353,12 +500,6 @@ main section:not(#hero):not(#general-conditions) {
   height: 100px;
   width: calc(100vw + 2px);
   z-index: -1;
-}
-@media (max-width: 1024px) {
-  #about::before {
-    top: calc(100% - 80px);
-    left: -2px;
-  }
 }
 #about::after {
   content: "";
@@ -409,10 +550,10 @@ main section:not(#hero):not(#general-conditions) {
 #contact {
   scroll-margin-top: 200px;
 }
-#contact .text-container {
+#contact.text-container {
   position: relative;
 }
-#contact .text-container::before {
+#contact.text-container::before {
   content: "";
   position: absolute;
   bottom: calc(100% - 20px);
@@ -422,7 +563,7 @@ main section:not(#hero):not(#general-conditions) {
   height: 50px;
   width: 100%;
 }
-#contact .text-container::after {
+#contact.text-container::after {
   content: "";
   position: absolute;
   top: calc(100% - 20px);
@@ -459,6 +600,11 @@ footer::before {
   left: -10%;
   transform: rotate(-2deg);
   border-top: 12px solid #f5f5f5;
+}
+@media (max-width: 780px) {
+  footer::before {
+    border-top: 8px solid #f5f5f5;
+  }
 }
 
 .content-container {

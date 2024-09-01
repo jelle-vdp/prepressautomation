@@ -8,18 +8,28 @@
     <link rel="stylesheet" href="main.css">
     <script src="main.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>    <script type="module">
+      import BrowserDetector from 'https://cdn.jsdelivr.net/npm/browser-dtector/dist/browser-dtector.js';
+        const body = document.querySelector("body");
+      const detector = new BrowserDetector(window.navigator.userAgent);
+      if (detector.parseUserAgent().isChrome){
+        body.classList.add("chrome")
+      };      
+      if (detector.parseUserAgent().isEdge){
+        body.classList.add("edge")
+      };
+    </script>
 </head>
 
 <body>
     <header id="top" class="bg-green-600 text-neutral-100 sticky w-full">
         <div class="container mx-auto my-auto py-6 grid grid-cols-12">
-            <a class="col-span-5 2xl:col-span-4 z-50" href="#top"><h1 class="2xl:text-6xl text-5xl"><span>Prepress Automation</span></h1></a>
+            <a class="col-span-5 2xl:col-span-4 z-50" href="#top"><h1 class="text-4xl 2xl:text-6xl sm:text-5xl"><span>Prepress Automation</span></h1></a>
             <nav class="z-50 flex content-start lg:block 2xl:col-start-6 2xl:col-span-6 col-span-7 text-2xl uppercase">
                 <button class="lg:hidden ml-auto mb-auto uppercase">Menu</button> 
                 <ul class="lg:flex flex-col xl:flex-row lg:ml-auto xl:ml-0 lg:h-full justify-between items-end">
                     <li class="bg-green-600 2xl:pb-1 lg:px-2 2xl:px-4"><a href="#about">About</a></li>
-                    <li class="bg-green-600 2xl:pb-1 lg:px-2 2xl:px-4"><a href="#general-conditions">General conditions</a></li>
+                    <li class="bg-green-600 2xl:pb-1 lg:px-2 2xl:px-4"><a href="#general-conditions"><span class="hidden sm:inline-block">General</span> conditions</a></li>
                     <li class="bg-green-600 2xl:pb-1 lg:px-2 2xl:px-4"><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -28,34 +38,34 @@
     <main>
         <section id="hero">
             <div class="container mx-auto py-60 items-center">
-                <ul class="content-container flex justify-between text-neutral-800">
-                    <li class="bg-neutral-100 w-1/5 xl:w-1/6 text-center flex flex-col justify-items-center py-6 px-4 2xl:p-6">
+                <ul class="content-container grid grid-cols-2 gap-16 md:flex md:justify-between text-neutral-800">
+                    <li class="col-span-1 md:w-1/5 xl:w-1/6 text-center flex flex-col justify-items-center py-6 px-4 2xl:p-6">
                         <div class="xl:mx-6 mb-6 h-24 flex justify-center align-items-center">
                             <img src="/assets/img/prepress-icon.svg" alt="Prepress and JDF Automation">
                         </div>
                         <h3 class="text-lg lg:text-xl leading-tight">Prepress & JDF Automation</h3>
                         <span></span>
                     </li>
-                    <li class="w-1/5 xl:w-1/6 text-center flex flex-col align-items-center py-6 px-4 2xl:p-6">
+                    <li class="col-span-1 md:w-1/5 xl:w-1/6 text-center flex flex-col align-items-center py-6 px-4 2xl:p-6">
                         <div class="xl:mx-6 mb-6 h-24 flex justify-center align-items-center">
                             <img src="/assets/img/softwaretesting-icon.svg" alt="Software Testing">
                         </div>
                         <h3 class="text-lg lg:text-xl leading-tight">Software testing</h3>
                         <span></span>
                     </li>
-                    <li class="w-1/5 xl:w-1/6 text-center flex flex-col justify-items-center py-6 px-4 2xl:p-6">
+                    <li class="col-span-1 md:w-1/5 xl:w-1/6 text-center flex flex-col justify-items-center py-6 px-4 2xl:p-6">
                         <div class="xl:mx-6 mb-6 h-24 flex justify-center align-items-center">
                             <img src="/assets/img/webdevelopment-icon.svg" alt="Webdevelopment">
                         </div>
                         <h3 class="text-lg lg:text-xl leading-tight">Webdesign & development</h3>
                         <span></span>
                     </li>
-                    <li class="w-1/5 xl:w-1/6 text-center py-6 px-4 2xl:p-6">
+                    <li class="col-span-1 md:w-1/5 xl:w-1/6 text-center flex flex-col py-6 px-4 2xl:p-6">
                         <a href="https://www.elektrorepairmortsel.be" target="_blank" class="flex flex-col justify-items-center">
-                            <div class="xl:mx-6 mb-6 h-24 flex justify-items-center align-items-center">
-                                <img src="/assets/img/elektrorepair-icon.svg" alt="Electro repair">
+                            <div class="mb-6 h-24 flex justify-items-center align-items-center">
+                                <img src="/assets/img/elektrorepair-icon.svg" alt="Electro repair" class="mx-auto">
                             </div>
-                            <h3 class="text-lg lg:text-xl leading-tight">Electro repair</h3>
+                            <h3 class="text-lg lg:text-xl leading-tight">Elektro repair</h3>
                             <p class="text-neutral-800">(Click for more info)</p>
                             <span></span>
                         </a>
@@ -135,7 +145,7 @@
         </section>
     </main>
     <footer class="bg-green-600 text-neutral-100 pb-12 pt-4">
-       <div class="text-container grid grid-cols-2 gap-8">
+       <div class="text-container flex flex-col md:grid md:grid-cols-2 gap-4 md:gap-8">
             <div class="col-span-1">
                 <a class="mb-4 block" href="mailto:info@prepressautomation.be">
                     <i class="fa-solid fa-envelope mr-2"></i> 
