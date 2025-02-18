@@ -415,6 +415,33 @@ main {
       }
     }
 
+    &:nth-child(3) {
+      p {
+        z-index: 2;
+      }
+      &:hover span {
+        transform: skew(0, -2deg);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        right: calc(50% - 7px);
+        bottom: calc(100% + 77px);
+        transform: translateX(calc(-50% + 20vw + 6px));
+        width: 100vw;
+        height: 12px;
+        background-color: $primary-white;
+        transform: rotate(2deg);
+
+        @media (max-width: 780px) {
+          height: 8px;
+        }
+
+        @media (max-width: 768px) {
+          height: 0px;
+        }
+      }
+    }
     &:last-child {
       p {
         z-index: 2;
@@ -462,9 +489,6 @@ main {
     }
     &:nth-child(3)::before {
       height: 64px;
-      &:hover span {
-        transform: skew(0, -2deg);
-      }
 
       @media (min-width: 1024px) and (max-width: 1280px) {
         height: 69px;
@@ -564,7 +588,7 @@ main {
 }
 
 #webdesign {
-  scroll-margin-top: 200px;
+  scroll-margin-top: 400px;
   padding-bottom: 5rem;
 
   .text-container {
