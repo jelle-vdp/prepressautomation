@@ -462,6 +462,9 @@ main {
     }
     &:nth-child(3)::before {
       height: 64px;
+      &:hover span {
+        transform: skew(0, -2deg);
+      }
 
       @media (min-width: 1024px) and (max-width: 1280px) {
         height: 69px;
@@ -557,6 +560,44 @@ main {
     height: 100px;
     width: calc(100vw + 2px);
     z-index: -1;
+  }
+}
+
+#webdesign {
+  scroll-margin-top: 200px;
+  padding-bottom: 5rem;
+
+  .text-container {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: calc(100% - 20px);
+      left: 0;
+      transform: rotate(-2deg);
+      background-color: $primary-green;
+      height: 50px;
+      width: 100%;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: calc(100% - 20px);
+      left: 0;
+      transform: rotate(-2deg);
+      background-color: $primary-green;
+      height: 50px;
+      width: 100%;
+    }
+
+    ul {
+      list-style: circle;
+
+      li {
+        margin-left: 1rem;
+      }
+    }
   }
 }
 
